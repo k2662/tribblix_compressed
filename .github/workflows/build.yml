@@ -1,0 +1,11 @@
+name: "compress tribblix iso"
+on: [push]
+jobs:
+  compress:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - run: sudo apt install zstd
+      - run: curl -O https://pkgs.tribblix.org/iso/omnitribblix-0m34lx.iso
+      - run: tar cf omnitribblix-0m34lx.iso.tar omnitribblix-0m34lx.iso
+      - run: zstd -9 omnitribblix-0m34lx.iso.tar
