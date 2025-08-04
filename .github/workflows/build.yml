@@ -6,7 +6,7 @@ jobs:
     steps:
       - uses: actions/checkout@v4
       - run: sudo apt install zstd
-      - run: curl -O https://pkgs.tribblix.org/iso/omnitribblix-0m34lx.iso
+      - run: curl -fSLO https://pkgs.tribblix.org/iso/omnitribblix-0m34lx.iso
       - run: tar cf omnitribblix-0m34lx.iso.tar omnitribblix-0m34lx.iso
       - run: zstd -19 omnitribblix-0m34lx.iso.tar
       - name: Upload a Build Artifact
